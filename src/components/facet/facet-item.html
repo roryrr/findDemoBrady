@@ -1,0 +1,12 @@
+<a>
+	<data-ng-include data-ng-if="$ctrl.ebFeatures.bodyFacetsCheck" data-src="$ctrl.cbxPath"></data-ng-include>
+    {{$ctrl.getValue(value.value)}}
+    <span class="eb-facet-count">({{value.count}})</span>
+</a>
+
+<ul class="eb-sub-facet" data-ng-if="value.child">
+    <li data-ng-repeat="value in value.child.values"
+    data-ng-class="{ 'eb-selected': $ctrl.ebState.isSelectedFilter(value.filter)}"
+    data-ng-include="'components/facet/facet-item.html'"
+    data-facet-item="value"></li>
+</ul>

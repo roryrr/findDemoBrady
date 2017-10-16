@@ -1,0 +1,43 @@
+#eb-suggestions {
+  #eb-no-results-suggestions{
+    font-weight: 200;
+    margin-top: 50px;
+    margin-bottom: 0;
+
+    .eb-partials-term{
+      font-weight: 400;
+    }
+  }
+
+  .eb-term-suggestion{
+    line-height: 24px;
+    margin: 30px 24px;
+    padding-bottom: 22px;
+    border-bottom: 2px solid @main-color-light;
+    font-weight: 200;
+    color: @main-color;
+  }
+
+  .eb-result {
+    padding-bottom: 20px;
+
+    @media (min-width: @three-column-breakpoint) {
+      width: 33.33%;
+    }
+    @media (max-width: @three-column-breakpoint) {
+      width: 50%;
+    }
+    @media (max-width: @two-column-breakpoint) {
+      width: 100%;
+    }
+  }
+
+  .eb-suggestions-show-all{
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0 24px;
+    padding-top: 22px;
+    border-top: 2px solid @main-color-light;
+  }
+}

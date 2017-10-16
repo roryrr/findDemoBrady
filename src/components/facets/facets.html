@@ -1,0 +1,28 @@
+<section id="eb-facets-block"
+         data-ng-class="{'eb-facets-responsive-overlap': $ctrl.ebFeatures.bodyFacetsResponsiveOverlap}"
+         data-ng-if="$ctrl.ebSearch.getAvailableFacets().length > 0">
+    <div class="eb-facet-darkness"></div>
+    <button class="eb-facets-ok"
+            data-translate="FACETS_OK"
+            data-ng-click="$ctrl.toggleFacets()"
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsResponsiveOverlap">
+    </button>
+    <data-eb-facet
+            class="eb-nav-facet"
+            data-ng-repeat="facet in $ctrl.ebSearch.getAvailableFacets() | filter: $ctrl.categoriesFilter track by facet.facet"
+            data-facet="facet">
+    </data-eb-facet>
+    <data-eb-facet
+            class="eb-nav-facet"
+            data-ng-class="{'eb-facet-scroll': $ctrl.ebFeatures.bodyFacetsSeeMoreSystem === 'scroll'}"
+            data-ng-repeat="facet in $ctrl.ebSearch.getAvailableFacets() | filter: $ctrl.facetsFilter track by facet.facet"
+            data-facet="facet">
+    </data-eb-facet>
+    <data-eb-price-facet
+            id="eb-price-facet"
+            class="eb-nav-facet"
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsPriceRange"
+            data-ng-repeat="facet in $ctrl.ebSearch.getAvailableFacets() | filter: $ctrl.priceFilter track by facet.facet"
+            data-facet="facet">
+    </data-eb-price-facet>
+</section>

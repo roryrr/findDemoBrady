@@ -1,0 +1,17 @@
+<ul data-ng-class="{'eb-empathize-history': $ctrl.showHistory()}">
+    <li data-ng-if="$ctrl.showHistory()"
+        data-ng-repeat="(i, term) in $ctrl.getHistory() | orderBy:'$index':true | limitTo: $ctrl.ebFeatures.components.empathize.limit"
+        data-ng-mousedown="$ctrl.onTermClick($event, term)"
+        data-ng-class="{'eb-empathize-selected': $ctrl.isSelected(i)}"
+        style="background-color: rgba(255, 255, 255, {{0.06 * $index}})">
+        <span class="eb-clock hours" data-ng-include="'images/FixedHour.svg'"></span>
+        <span class="eb-clock minutes" data-ng-include="'images/Rotate-mins.svg'"></span>
+        {{term}}
+    </li>
+    <li data-ng-if="!$ctrl.showHistory()"
+        data-ng-repeat="(i, term) in $ctrl.ebSearch.getTopTrends() | limitTo: $ctrl.ebFeatures.components.empathize.limit"
+        data-ng-mousedown="$ctrl.onTermClick($event, term.term)"
+        data-ng-bind-html="term.html"
+        data-ng-class="{'eb-empathize-selected': $ctrl.isSelected(i)}">
+    </li>
+</ul>

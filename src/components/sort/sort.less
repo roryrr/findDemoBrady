@@ -1,0 +1,194 @@
+#eb-sort {
+
+  float: right;
+  padding: 15px 0;
+  font-weight: @utils-bar-font-weight;
+  font-size: @utils-bar-font-size;
+  cursor: pointer;
+
+  * {
+    color: white;
+  }
+
+  .eb-chevron-icon {
+    margin-left: 10px;
+    height: 9px;
+    width: 9px;
+    fill: white;
+  }
+
+  #eb-sort-list {
+    display: inline-block;
+    position: relative;
+
+    #eb-sort-mobile-header {
+      display: none;
+    }
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: @secondary-color;
+      margin: @utils-bar-vertical-padding -35px 0 0;
+      padding: 5px 60px 10px 150px;
+      width: auto;
+      white-space: nowrap;
+      z-index: 1101;
+      font-weight: @utils-bar-font-weight;
+      font-size: @utils-bar-font-size;
+      border: none;
+      text-align: right;
+
+      li {
+        padding: 5px 0 20px;
+        cursor: pointer;
+        line-height: 16px;
+      }
+    }
+
+    .eb-radio {
+      position: relative;
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      margin-right: 0;
+      margin-left: 18px;
+      margin-top: -2px;
+      outline: none;
+      border: solid 1px white;
+    }
+
+    .eb-radio-selected .eb-radio-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px;
+      border-radius: 50%;
+      background: #fff;
+    }
+  }
+
+  &:hover {
+    #eb-sort-list ul {
+      display: block !important;
+    }
+  }
+
+  #eb-sort-selected {
+    display: inline-block;
+  }
+
+  .eb-sort-darkness {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    margin-top: 35px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  &:hover .eb-sort-darkness {
+    visibility: visible !important;
+    opacity: 0.4;
+  }
+
+  .eb-sort-darkness:hover {
+    visibility: hidden !important;
+    opacity: 0;
+  }
+
+  .tablet({ width: 47%; box-sizing: border-box; margin: 10px 0; border-radius: 20px; padding: 5px 0; background-color: @main-color; border: solid 1px white; color: white; text-align: center; font-size: 14px; .eb-sort-darkness {
+    display: none;
+  } #eb-sort-list {
+      ul {
+        left: 0;
+        width: 100%;
+        height: calc(~'100% - 130px');
+        position: fixed;
+        bottom: 0;
+        margin: 0;
+        padding: 20px;
+        box-sizing: border-box;
+        font-size: @facet-responsive-font-sizeadding;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        top: 130px;
+        background: white;
+        z-index: @z-index + 2000;
+        transition: height ease-in-out 200ms;
+
+        &.eb-collapsed {
+          height: 0;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+
+        #eb-sort-mobile-header {
+          display: block;
+          padding: 0 0 5px 0;
+          z-index: 1101;
+          text-align: left;
+
+          .eb-sort-mobile-close {
+            display: block;
+            position: absolute;
+            margin: 0 -20px;
+            bottom: 0;
+            width: 100%;
+            height: 50px;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background-color: @main-color;
+            font-size: 16px;
+            font-weight: 200;
+
+          }
+          .eb-sort-mobile-tittle {
+            display: inline-block;
+            text-align: left;
+            font-weight: 400;
+            color: @main-color-light;
+          }
+        }
+
+        li {
+          border-bottom: 1px solid @accent-color-light;
+          text-align: left;
+          padding: 15px 0;
+
+          .eb-radio-tittle {
+            color: @accent-color;
+          }
+
+          .eb-radio {
+            float: right;
+            border-color: @accent-color-light;
+            .eb-radio-icon {
+              background-color: @accent-color-light;
+            }
+          }
+        }
+      }
+    } });
+
+  .mobile({ #eb-sort-selected {
+    display: none;
+  } });
+}
+

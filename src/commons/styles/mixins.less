@@ -1,0 +1,102 @@
+.border-radius(@radius) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.animation(@name, @duration: 300ms, @delay: 0, @ease: ease) {
+  -webkit-animation: @name @duration @delay @ease;
+  -moz-animation: @name @duration @delay @ease;
+  -o-animation: @name @duration @delay @ease;
+  animation: @name @duration @delay @ease;
+}
+
+.transition(@transition) {
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -o-transition: @transition;
+  transition: @transition;
+}
+
+.transform(@string) {
+  -webkit-transform: @string;
+  -moz-transform: @string;
+  -ms-transform: @string;
+  -o-transform: @string;
+  transform: @string;
+}
+
+.rotate(@deg) {
+  .transform('rotate(@deg)');
+}
+
+.scale(@factor) {
+  .transform('scale(@factor)');
+}
+
+.skew(@deg, @deg2) {
+  .transform('skew(@deg, @deg2)');
+}
+
+.translate(@x, @y:0) {
+  .transform('translate(@x, @y)');
+}
+
+.translate3d(@x, @y: 0, @z: 0) {
+  .transform('translate3d(@x, @y, @z)');
+}
+
+.perspective(@value: 1000) {
+  -webkit-perspective: @value;
+  -moz-perspective: @value;
+  perspective: @value;
+}
+
+.transform-origin(@x:center, @y:center) {
+  -webkit-transform-origin: @x @y;
+  -moz-transform-origin: @x @y;
+  -ms-transform-origin: @x @y;
+  -o-transform-origin: @x @y;
+  transform-origin: @x @y;
+}
+
+.animation-delay(@delay) {
+  -webkit-animation-delay: @delay;
+  -moz-animation-delay: @delay;
+  -o-animation-delay: @delay;
+  animation-delay: @delay;
+}
+
+.animation-duration(@delay) {
+  -webkit-animation-duration: @delay;
+  -moz-animation-duration: @delay;
+  -o-animation-duration: @delay;
+  animation-duration: @delay;
+}
+
+.keyframes(@name; @arguments) {
+  @-webkit-keyframes @name { @arguments(); }
+  @-moz-keyframes @name { @arguments(); }
+  @-ms-keyframes @name { @arguments(); }
+  @-o-keyframes @name { @arguments(); }
+  @keyframes @name { @arguments(); }
+}
+
+.keyframes(fadeIn; {
+  0% {
+    opacity: 0;
+    display: none;
+  } 1% {
+    display: block;
+  } 100% {
+      opacity: 1;
+  }
+});
+
+.keyframes(fadeOut; {
+  0% {
+    opacity: 1;
+  } 100% {
+    opacity: 0;
+  }
+});

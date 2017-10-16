@@ -1,0 +1,17 @@
+.desktop(@rules) {
+  @media (max-width: @desktop-max-width) {
+    @rules();
+  }
+}
+
+.tablet(@rules) {
+  @media (max-width: @tablet-max-width) {
+    @rules();
+  }
+}
+
+.mobile(@rules) {
+  @media (max-width: @mobile-max-width) {
+    @rules();
+  }
+}

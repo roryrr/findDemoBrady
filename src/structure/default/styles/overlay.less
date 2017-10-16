@@ -1,0 +1,44 @@
+& {
+  background-color: white;
+  z-index: 1100;
+
+  * {
+    font-family: @main-font;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .eb-scroll,
+  .eb-infinite-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .eb-scroll::-webkit-scrollbar,
+  .eb-infinite-scroll::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .eb-scroll::-webkit-scrollbar-track {
+    background: @main-color-light;
+  }
+
+  .eb-infinite-scroll::-webkit-scrollbar-track {
+    background: white;
+  }
+
+  .eb-scroll::-webkit-scrollbar-thumb {
+    background: @main-color;
+
+  }
+
+  .eb-infinite-scroll::-webkit-scrollbar-thumb {
+    background: white;
+  }
+  .eb-infinite-scroll:hover::-webkit-scrollbar-thumb {
+    background: @main-color-light;
+  }
+}

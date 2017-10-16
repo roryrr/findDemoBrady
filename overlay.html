@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://qastatic.richrelevance.net/rrserver/find/overlay/1.4/css/rr_modules.min.css"/>
+    <link rel="stylesheet" href="css/rr_modules_custom.min.css"/>
+    <title>Find Demo</title>
+    <style>
+        #eb-overlay{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<!-- RR integration code -->
+<script src="https://media.richrelevance.com/rrserver/js/1.1/p13n.js"></script>
+<script>
+  function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+</script>
+<script charset="utf-8" type="text/javascript">
+  var R3_COMMON = new r3_common();
+  R3_COMMON.setApiKey('dbeab3c977a08905');
+  R3_COMMON.setBaseUrl('http://staging.richrelevance.com/rrserver/');
+  R3_COMMON.setClickthruServer("http://" + window.location.host);
+  R3_COMMON.setUserId('test-u1');
+  R3_COMMON.setSessionId('test-s1');
+  R3_COMMON.setChannel('test-channel');
+  R3_COMMON.setRegionId('test-region');
+  // R3_COMMON.addPlacementType('generic_page.rory_search');
+  var R3_SEARCH = new r3_search();
+  R3_SEARCH.setTerms(getParameterByName('q'));
+  r3();
+  // console.log("count");
+</script>
+
+<script src="https://qastatic.richrelevance.net/rrserver/find/overlay/1.4/js/rr_libs.min.js"></script>
+<script src="https://qastatic.richrelevance.net/rrserver/find/overlay/1.4/js/rr_modules.js"></script>
+<script src="js/rr_modules_custom.js"></script>
+<!-- <script src="js/rr_modules.js"></script> -->
+<script>
+  richrelevanceFindUI.config({
+    endpoints: {
+      find: 'https://staging.richrelevance.com/rrserver/api/find/v1',
+      recs: 'https://staging.richrelevance.com/rrserver/api/rrPlatform'
+    },
+    r3: R3_COMMON,
+    lang: 'en',
+    displayLang: 'en',
+    scope: 'desktop',
+    defaultCurrency: 'USD',
+    debug: true
+  });
+</script>
+</body>
+</html>

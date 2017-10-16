@@ -1,0 +1,31 @@
+<header id="eb-header"
+        class="{{ebComponentRenderingHelper.ebHeader.getClass()}}"
+        data-ng-if="ebComponentRenderingHelper.ebHeader.show()"
+        data-ng-include
+        data-src="ebFeatures.structure.default.header">
+</header>
+
+<data-eb-empathize
+        id="eb-empathize"
+        data-ng-if="ebComponentRenderingHelper.ebEmpathize.render()"
+        data-ng-show="ebComponentRenderingHelper.ebEmpathize.show()"
+        data-ng-style="ebComponentRenderingHelper.ebEmpathize.styles.get()">
+</data-eb-empathize>
+
+<aside id="eb-utils-bar"
+       data-ng-if="ebComponentRenderingHelper.ebFacets.show()"
+       data-ng-include
+       data-src="ebFeatures.structure.default.utilsBar">
+</aside>
+
+<main id="eb-body"
+      class="{{ebComponentRenderingHelper.ebBody.getClass()}}"
+      data-infinite-scroll>
+
+    <section id="eb-main"
+             data-ng-include
+             data-src="ebFeatures.structure.default.main">
+    </section>
+</main>
+
+<data-eb-user-picker id="eb-user-picker"></data-eb-user-picker>

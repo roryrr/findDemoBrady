@@ -1,0 +1,38 @@
+<div class="eb-sort-darkness"></div>
+<label data-ng-if="!$ctrl.ebFeatures.icons.showSortIcon"
+       class="eb-sort-label"
+       data-translate="SORT.LABEL"
+       data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleSort() : false">
+</label>
+
+<div id="eb-sort-list" data-ng-if="$ctrl.ebFeatures.components.sort.type === 'list'">
+
+    <p id="eb-sort-selected"
+       data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleSort() : false">&nbsp;
+        {{$ctrl.sortLabel}}
+    </p>
+
+    <data-ng-include
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsOpenClose"
+            data-ng-class="$ctrl.ebFeatures.icons.toggleFacetAnimation"
+            data-src="$ctrl.toggleIconPath">
+    </data-ng-include>
+
+    <ul data-ng-class="{'eb-collapsed': $ctrl.isCollapsed()}">
+        <li id="eb-sort-mobile-header">
+            <span class="eb-sort-mobile-tittle">
+                {{ 'SORT.LABEL'  | translate}}
+            </span>
+            <button class="eb-sort-mobile-close"
+                    data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleSort() : false">{{'SORT.CLOSE' |
+                translate}}
+            </button>
+        </li>
+        <li data-ng-repeat="element in $ctrl.ebFeatures.components.sort.values track by element.id"
+            data-ng-click="$ctrl.listElementClick(element.value)"
+            data-ng-class="{'eb-radio-selected': $ctrl.isSelectedOption(element.value)}">
+            <span class="eb-radio-tittle" data-translate="SORT.{{element.id}}"></span>
+            <span class="eb-radio"><span class="eb-radio-icon"></span></span>
+        </li>
+    </ul>
+</div>

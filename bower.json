@@ -1,0 +1,20 @@
+{
+  "name": "overlay",
+  "version": "1.4.0",
+  "private": true,
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-i18n": "~1.5.8",
+    "angular-animate": "~1.5.8",
+    "angular-cookies": "~1.5.8",
+    "angular-translate": "~2.13.0",
+    "angular-sanitize": "~1.5.8",
+    "angular-uuid-service": "~0.1.0",
+    "angular-scroll": "^1.0.0",
+    "angularjs-slider": "^6.0.1",
+    "slick-carousel": "~1.6.0"
+  },
+  "resolutions": {
+    "angular": "^1.5.8"
+  }
+}

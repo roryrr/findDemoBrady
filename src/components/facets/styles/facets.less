@@ -1,0 +1,168 @@
+#eb-facets {
+  width: auto;
+  padding: 0;
+  display: inline-block;
+
+  .eb-facet-darkness {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 100;
+
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+  }
+
+  &:hover .eb-facet-darkness {
+    visibility: visible !important;
+    opacity: 0.6;
+  }
+
+  & .eb-facet-darkness:hover {
+    visibility: hidden !important;
+    opacity: 0;
+  }
+
+  #eb-facets-block {
+    &:hover .eb-header-facet {
+      opacity: 0.4;
+    }
+  }
+
+  .eb-nav-facet {
+    position: static;
+    width: auto !important;
+    min-width: 0;
+    padding: @utils-bar-vertical-padding 35px @utils-bar-vertical-padding 0;
+
+    &:last-child{
+      padding-right: 0;
+    }
+
+    .eb-header-facet {
+      padding: 0;
+      text-transform: capitalize;
+      font-weight: @utils-bar-font-weight;
+      font-size: @utils-bar-font-size;
+      color: white;
+
+      .eb-chevron-icon {
+        margin-left: 10px;
+        height: 9px;
+        width: 9px;
+        fill: white;
+      }
+      .eb-rotate .eb-chevron-icon {
+        transform: none;
+      }
+    }
+
+    &:hover .eb-header-facet {
+      opacity: 1 !important;
+    }
+
+    .eb-facet {
+      display: none;
+      position: absolute;
+      background-color: @secondary-color;
+      margin: @utils-bar-vertical-padding 0 0 -@facet-horizontal-padding;
+      padding: 5px @facet-horizontal-padding 25px;
+      width: auto;
+      white-space: nowrap;
+      font-weight: @utils-bar-font-weight;
+      font-size: @utils-bar-font-size;
+      z-index: 200;
+
+      #eb-facet-mobile-header {
+        display: none;
+      }
+
+      ul {
+        -webkit-column-gap: @facet-horizontal-padding;
+        -moz-column-gap: @facet-horizontal-padding;
+        column-gap: @facet-horizontal-padding;
+
+        &.eb-facet-multicolumn-2 {
+          -webkit-column-count: 2;
+          -moz-column-count: 2;
+          column-count: 2;
+        }
+
+        &.eb-facet-multicolumn-3 {
+          -webkit-column-count: 3;
+          -moz-column-count: 3;
+          column-count: 3;
+        }
+
+        &.eb-facet-multicolumn-4 {
+          -webkit-column-count: 4;
+          -moz-column-count: 4;
+          column-count: 4;
+        }
+      }
+
+      li {
+        -webkit-margin-before: 0; // Workaround to avoid Chrome splitting margins between columns (i.e. align elements to the top properly)
+        -webkit-margin-after: 0; // Workaround to avoid Chrome splitting margins between columns (i.e. align elements to the top properly)
+        margin-bottom: 10px;
+        padding: 0;
+
+        a {
+          color: white;
+          height: 21px;
+          display: inline-block;
+        }
+      }
+    }
+
+    &:hover .eb-header-facet + .eb-facet {
+      display: block;
+    }
+  }
+
+  .eb-cbx {
+    position: relative;
+    top: 4px;
+    border-radius: 0;
+    height: 17px;
+    width: 17px;
+    margin-right: 15px;
+    border-color: white;
+  }
+
+  .eb-selected > a .eb-cbx {
+    background-color: white;
+  }
+
+  .eb-facet-clear {
+    float: right;
+    margin-top: 40px;
+    outline: none;
+    height: 45px;
+    width: 100px;
+    padding: 0 12px;
+    border: 1px solid white;
+    border-radius: 2px;
+    white-space: nowrap;
+    color: white;
+    background: transparent;
+    font-size: @utils-bar-font-size;
+    font-weight: 400;
+    -webkit-transition: background 0.2s linear, color 0.2s linear, border-color 0.2s linear;
+    -o-transition: background 0.2s linear, color 0.2s linear, border-color 0.2s linear;
+    -moz-transition: background 0.2s linear, color 0.2s linear, border-color 0.2s linear;
+    transition: background 0.2s linear, color 0.2s linear, border-color 0.2s linear;
+    cursor: pointer;
+
+    &:hover {
+      color: @secondary-color;
+      background: white;
+    }
+  }
+}
+
+

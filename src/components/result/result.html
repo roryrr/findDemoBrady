@@ -1,0 +1,27 @@
+<div ng-app='ebApp'>
+<a data-ng-click="$ctrl.resultClicked()" data-ng-href="{{$ctrl.result.finalUrl}}">
+    <img data-ng-show="$ctrl.src || $ctrl.ebConfig.defaultImage"
+         data-ng-src="{{$ctrl.src || $ctrl.ebConfig.defaultImage}}"
+         data-ng-mouseover="$ctrl.onImageMouseOver()"
+         data-ng-mouseout="$ctrl.onImageMouseOut()"
+         class="eb-result-image"
+         alt="{{$ctrl.result.name}}"/>
+    <data-ng-include data-ng-if="!$ctrl.src && !ebConfig.defaultImage"
+                     data-src="$ctrl.defaultImagePath"></data-ng-include>
+  </a>
+    <div class="eb-result-details">
+      <p class="eb-result-name">{{$ctrl.result.brand | uppercase}}</p>
+      <!-- <div ng-controller="dataSaveController as dsCtrl"> -->
+          <button class="buttonstyle" ng-controller="dataSaveController as dsCtrl" ng-click="buyArrayPushing($ctrl.result.id)">Buy</button>
+          <button class="buttonstyle" ng-controller="dataSaveController as dsCtrl" ng-click="viewArrayPushing($ctrl.result.id)">View</button>
+      <!-- </div> -->
+  </div>
+<div class="eb-result-details">
+    <p class="eb-result-categories"><span class="eb-result-category">{{$ctrl.result.name}}</span>
+    </p>
+    <p class="eb-result-price">${{$ctrl.result.price}}</p>
+    <!-- ebCurrency:$ctrl.result.currency -->
+</div>
+</div>
+<!-- <input type="button" class="eb-a2c-button" data-ng-show="$ctrl.a2cButtonEnabled"
+       value="{{'ADD_TO_CART' | translate}}" data-ng-click="$ctrl.add2CartClicked()"/> -->

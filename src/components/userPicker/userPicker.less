@@ -1,0 +1,203 @@
+#eb-user-picker {
+
+  position: absolute;
+  left: 15px;
+  bottom: 10px;
+  display: block;
+
+  .eb-user-picker-user {
+    display: block;
+    position: relative;
+
+    .eb-user-picker-image {
+      position: relative;
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin: 5px 10px 5px 0;
+      background-size: 60%;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      z-index: 102;
+    }
+
+    &.selectable {
+      .eb-user-picker-image {
+        background-color: @secondary-color;
+      }
+      &.selected,
+      &:hover {
+        .eb-user-picker-image {
+          background-color: @main-color-light;
+        }
+      }
+    }
+
+    // popup's arrow
+    &:after {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      content: " ";
+      width: 0;
+      height: 0;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+      border-right: 8px solid @main-color-light;
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+    &.open.detailsOpen.selected:after {
+      opacity: .7;
+    }
+    // END popup's arrow
+  }
+
+  .eb-user-picker-details {
+    position: absolute;
+    top: 5px;
+    left: 60px;
+    width: 315px;
+    height: ~'calc(100% - 27px)';
+    padding: 10px 10px 10px 20px;
+    border-radius: 10px;
+    background-color: @main-color-light;
+    opacity: .7;
+    color: @secondary-color-light;
+    transition: opacity .4s ease;
+
+    .mobile({width: 200px;});
+
+    .eb-user-picker-details-container {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      height: 100%;
+
+      &.eb-scroll::-webkit-scrollbar-thumb {
+        background-color: @main-color-light;
+      }
+      &.eb-scroll:hover::-webkit-scrollbar-thumb {
+        background-color: @main-color;
+      }
+
+      .eb-user-picker-name {
+        width: 100%;
+        font-weight: 200;
+        font-size: 22px;
+      }
+      .column-left {
+        width: 60%;
+      }
+      .column-right {
+        width: 40%;
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 12px;
+        margin: 10px 0;
+        color: white;
+      }
+
+      img {
+        width: 50px;
+        height: auto;
+        background-color: #5e5e5e;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        border-radius: 50%;
+        &:odd{
+          margin-right: 0;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
+
+        li {
+          margin: 0 20px 5px 0;
+          font-weight: 200;
+          font-size: 12px;
+          line-height: 13px;
+          background: #834996;
+          color: #e8d1f0;
+          padding: 3px 9px;
+          border-radius: 15px;
+        }
+      }
+    }
+
+    &.ng-hide-add, &.ng-hide-remove {
+      animation: .4s stretch-to-right ease;
+    }
+    &.ng-hide-add {
+      animation-direction: reverse;
+    }
+
+    .eb-hide-user-picker-details {
+      position: absolute;
+      right: 25px;
+      top: 15px;
+      width: 15px;
+      height: 15px;
+      background-image: url('../images/x.png');
+      background-size: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+  }
+
+  &:hover {
+    .eb-user-picker-details,
+    .eb-user-picker-user.open.detailsOpen.selected:after {
+      opacity: .92;
+    }
+  }
+
+  .eb-user-picker-close {
+    position: relative;
+    top: 0;
+    margin: 5px 10px 5px 0;
+    width: 50px;
+    height: 50px;
+    z-index: 102;
+    border-radius: 50%;
+    background-image: url('../images/x.png');
+    background-size: 40%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: @accent-color-light;
+    cursor: pointer;
+  }
+
+  .animated.ng-hide-add, .animated.ng-hide-remove {
+    animation: .4s stretch-to-up ease;
+  }
+  .animated.ng-hide-add {
+    animation-direction: reverse;
+  }
+
+  @keyframes stretch-to-right {
+    from {
+      width: 0;
+    }
+  }
+  @keyframes stretch-to-up {
+    from {
+      height: 0;
+    }
+    to {
+      height: 50px;
+    }
+  }
+}
+#eb-restart{
+  background: url(https://png.icons8.com/restart/color/48);
+}

@@ -1,0 +1,54 @@
+<div class="eb-header-facet"
+     data-ng-class="{'eb-collapsable': $ctrl.ebFeatures.bodyFacetsOpenClose, 'eb-collapsed': $ctrl.isCollapsed($ctrl.facet)}"
+     data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleFacet($ctrl.facet) : false">
+
+    {{('FACET_TITLE.' + ($ctrl.facet.facet | uppercase)) | translate}}
+    <span data-ng-if="$ctrl.getSelectedCount($ctrl.facet.facet) > 0">({{$ctrl.getSelectedCount($ctrl.facet.facet)}})</span>
+
+    <data-ng-include
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsOpenClose"
+            data-ng-class="$ctrl.ebFeatures.icons.toggleFacetAnimation"
+            data-src="$ctrl.toggleIconPath">
+    </data-ng-include>
+</div>
+
+<div class="eb-facet">
+
+    <div id="eb-facet-mobile-header">
+
+        <button class="eb-facet-mobile-close"
+                data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleFacet($ctrl.facet) : false">
+        </button>
+        <span class="eb-facet-mobile-tittle">
+            {{('FACET_TITLE.' + ($ctrl.facet.facet | uppercase)) | translate}}
+        </span>
+        <button class="eb-facet-mobile-done"
+                data-translate="FACETS_OK"
+                data-ng-click="$ctrl.ebFeatures.bodyFacetsOpenClose ? $ctrl.toggleFacet($ctrl.facet) : false">
+        </button>
+
+    </div>
+
+    <ul id="eb-facet-{{$ctrl.facet.facet}}"
+        class="eb-facet-multicolumn-{{$ctrl.getNumberOfColumns()}}"
+        data-ng-class="{'eb-facet-overlap': $ctrl.ebFeatures.bodyFacetsOverlap}">
+
+        <li data-ng-repeat="value in $ctrl.facet.values |orderBy: $ctrl.orderFacetValuesBySelected | limitTo : $ctrl.facetLimit"
+            data-ng-class="{ 'eb-selected' : $ctrl.ebState.isSelectedFilter(value.filter) }"
+            data-ng-click="$ctrl.ebState.addDelFilter(value.filter, $ctrl.facet.facet === $ctrl.ebFeatures.bodyFacetsCategories.external)"
+            data-ng-include="'components/facet/facet-item.html'">
+        </li>
+
+        <li class="eb-more"
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsSeeMoreSystem == 'link' && $ctrl.facet.values.length > $ctrl.ebFeatures.bodyFacetsLimit"
+            data-ng-click="$ctrl.showMoreLessFacets($event)"
+            data-translate="FACETS_SHOW_MORE"
+            href>
+        </li>
+    </ul>
+    <button class="eb-facet-clear"
+            data-ng-if="$ctrl.ebFeatures.bodyFacetsClear && $ctrl.ebState.isDirtyFilter($ctrl.facet)"
+            data-translate="FACET_CLEAR"
+            data-ng-click="$ctrl.ebState.clearFilter($ctrl.facet)">
+    </button>
+</div>

@@ -1,0 +1,11 @@
+<data-eb-facets id="eb-facets"></data-eb-facets>
+
+<button class="eb-refine" data-ng-click="ebComponentRenderingHelper.ebFacets.toggle()">
+    <span data-translate="FACETS_REFINE_BY"></span>
+    <data-ng-include data-ng-if="ebFeatures.icons.showFilterIcon" data-src="'commons/icons/toggle/chevron/chevron.html'"></data-ng-include>
+</button>
+
+<data-eb-sort id="eb-sort"
+              data-ng-show="ebFeatures.showSort && ebSearch.getTotalResults() > 0">
+</data-eb-sort>
+

@@ -1,0 +1,96 @@
+#eb-facets #eb-facets-block.eb-facets-responsive-overlap {
+  display: block;
+  transition: height ease-in-out 200ms;
+
+  .tablet({ position: absolute; width: 100%; height: 0; overflow-x: hidden; overflow-y: scroll; top: 130px; background: white; z-index: @z-index + 2000; padding: 0; margin: 0; left: 0; .eb-facet-darkness {
+    display: none;
+  } .eb-facets-ok {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      height: 0;
+      border: none;
+      background-color: @main-color;
+      color: white;
+      font-size: 16px;
+      font-weight: 200;
+      padding: 0;
+      z-index: 220;
+      transition-delay: 0ms;
+      transition-duration: 0ms;
+    } .eb-nav-facet {
+        display: block;
+        padding: 20px;
+
+        .eb-header-facet {
+          color: @main-color-light;
+          font-size: 14px;
+          font-weight: 400;
+          opacity: 1;
+        }
+
+        .eb-facet {
+          display: block;
+          position: relative;
+          margin: 5px 0;
+          padding: 5px 0;
+          background-color: white;
+          border-top: solid 1px @accent-color-light;
+
+          ul {
+            -webkit-columns: 30px 2;
+            -moz-columns: 30px 2;
+            columns: 30px 2;
+
+            &#eb-facet-categoryName {
+              -webkit-column-count: 1;
+              -moz-column-count: 1;
+              column-count: 1;
+            }
+
+            li {
+
+              a {
+                color: @accent-color;
+              }
+
+              .eb-cbx {
+                border-color: @accent-color-light;
+              }
+
+            }
+          }
+          .eb-selected > a .eb-cbx {
+            background-color: @accent-color-light;
+          }
+
+          .eb-facet-clear {
+            display: block;
+            position: absolute;
+            width: auto;
+            height: auto;
+            top: 0;
+            right: 0;
+            margin: -25px 5px;
+            padding: 0;
+            color: @main-color-light;
+            border: none;
+            text-align: right;
+          }
+        }
+
+        &:last-child {
+          margin-bottom: 60px;
+        }
+      } });
+
+  &.eb-opened {
+    height: calc(~'100% - 130px');
+    .eb-facets-ok {
+      height: 50px;
+      transition: height ease-in-out 10ms;
+      transition-delay: 200ms;
+    }
+  }
+}

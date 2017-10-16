@@ -1,0 +1,69 @@
+<span class="eb-total-results"
+      data-ng-show="ebSearch.getTotalResults() > 0"
+      data-ng-class="{'eb-body-results-total-results-overlap': ebFeatures.bodyResultsTotalResultsOverlap == true}"
+      data-translate="RESULTS_FOUND"
+      data-translate-value-results="{{ebSearch.getTotalResults()}}">
+    </span>
+
+<data-eb-spellcheck
+        id="eb-spellcheck"
+        data-ng-if="ebComponentRenderingHelper.ebSpellcheck.show()">
+</data-eb-spellcheck>
+
+<section id="eb-banners" data-ng-if="ebComponentRenderingHelper.ebBanners.show()">
+    <data-eb-banner
+            class="eb-banner-item"
+            data-ng-animate="'animate'"
+            data-ng-repeat="banner in ebLinks.getBanners()"
+            data-position="{{ $index }}"
+            data-eb-position="$index"
+            data-banner="banner">
+    </data-eb-banner>
+</section>
+
+<section id="eb-promoteds" data-ng-if="ebComponentRenderingHelper.ebPromoteds.show()">
+    <div class="eb-text-recomended" data-translate="RESULTS_WE_RECOMMEND"></div>
+    <div id="eb-promoteds-grid" data-ng-class="{'eb-motion-grid': ebFeatures.bodyResultsMotion == true}">
+        <data-eb-promoted
+                class="eb-promoted-item {{ ebComponentRenderingHelper.ebPromoted.getClass() }}"
+                data-ng-animate="'animate'"
+                data-ng-repeat="promoted in ebLinks.getPromoteds()"
+                data-position="{{ $index }}"
+                data-eb-position="$index"
+                data-promoted="promoted"
+                data-last-page-element>
+        </data-eb-promoted>
+    </div>
+</section>
+
+<data-eb-suggestions
+        id="eb-suggestions"
+        data-ng-if="ebComponentRenderingHelper.ebSuggestions.show()">
+</data-eb-suggestions>
+
+<data-eb-no-results
+        id="eb-no-results"
+        data-ng-if="ebComponentRenderingHelper.ebNoResults.show()">
+</data-eb-no-results>
+
+<data-eb-results
+        id="eb-results"
+        class="{{ebComponentRenderingHelper.ebResults.getClass()}}"
+        data-ng-if="ebComponentRenderingHelper.ebResults.show()">
+</data-eb-results>
+
+<data-ng-include
+        id="eb-loading-spinning-balls"
+        data-ng-if="ebState.isLoading() && !ebConfig.loadingAnimation"
+        data-src="loadingPath">
+</data-ng-include>
+
+<data-ng-include id="eb-loading-custom"
+                 data-ng-show="ebState.isLoading() && ebConfig.loadingAnimation"
+                 data-src="ebConfig.loadingAnimation">
+</data-ng-include>
+
+<data-eb-scroll-to-top
+        id="eb-scroll-to-top"
+        data-ng-if="ebComponentRenderingHelper.ebScrollToTop.show()">
+</data-eb-scroll-to-top>

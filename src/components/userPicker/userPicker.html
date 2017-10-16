@@ -1,0 +1,39 @@
+<div ng-app='ebApp'>
+<div ng-controller="dataSaveController as dsCtrl">
+  <input type="image" src="https://png.icons8.com/restart/color/48" ng-click="restart()"/>
+</div>
+</div>
+<div class="eb-user-picker-user selectable animated"
+     data-ng-class="{selected: $ctrl.isSelectedUser(user), open:$ctrl.open, detailsOpen: $ctrl.showDetails}"
+     data-ng-show="$ctrl.open || $ctrl.isSelectedUser(user)"
+     data-ng-repeat="user in $ctrl.users"
+     data-ng-click="$ctrl.clickUser(user);">
+
+    <div class="eb-user-picker-image" style="background-image: url({{user.img}})"></div>
+</div>
+<div class="eb-user-picker-close animated"
+     data-ng-show="$ctrl.open"
+     data-ng-click="$ctrl.open=false">
+</div>
+
+<section class="eb-user-picker-details"
+         data-ng-show="$ctrl.open && $ctrl.showDetails">
+    <div class="eb-hide-user-picker-details" data-ng-click="$ctrl.showDetails=false;"></div>
+    <div class="eb-user-picker-details-container  eb-scroll">
+        <div class="eb-user-picker-name">{{$ctrl.selectedUser.name}}</div>
+        <!-- <div class="column-left">
+            <h1>{{$ctrl.getCategoryAffinities().length ? 'Category Affinities' : 'No Category Affinities';}}</h1>
+            <ul>
+                <li data-ng-repeat="category in $ctrl.getCategoryAffinities()">{{category}}</li>
+            </ul>
+        </div> -->
+        <div class="column-right">
+            <h1>{{$ctrl.getPurchasedProducts().length ? 'Products Purchased' : 'No Products Purchased';}}</h1>
+            <img data-ng-repeat="product in $ctrl.getPurchasedProducts()" data-ng-src="{{product.image}}">
+        </div>
+        <div class="column-left">
+            <h1>{{$ctrl.getProducts().length ? 'Products viewed' : 'No Products Viewed';}}</h1>
+            <img data-ng-repeat="product in $ctrl.getProducts()" data-ng-src="{{product.image}}">
+        </div>
+    </div>
+</section>
