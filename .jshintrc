@@ -1,0 +1,22 @@
+{
+  "bitwise"       : true,
+  "curly"         : true,
+  "eqeqeq"        : true,
+  "forin"         : true,
+  "freeze"        : true,
+  "futurehostile" : true,
+  "latedef"       : false,
+  "noarg"         : true,
+  "nocomma"       : true,
+  "nonbsp"        : true,
+  "nonew"         : true,
+  "plusplus"      : false,
+  "undef"         : true,
+  "unused"        : true,
+  "strict"        : true,
+
+  "globals": {
+    "angular": false,
+    "DEBUG": false
+  }
+}
