@@ -1,3 +1,4 @@
+'use strict';
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
@@ -31,7 +32,7 @@ var productDetailsSchema = new mongoose.Schema({
   categories: [String],
   identifier: String
 });
-mongoose.connect('mongodb://ec2-52-91-217-242.compute-1.amazonaws.com:27017//todoAppTest', {useMongoClient: true});
+mongoose.connect('mongodb://ec2-52-91-217-242.compute-1.amazonaws.com/todoAppTest', {useMongoClient: true});
 
 var productDetailsCollection = mongoose.model("productDetailsCollection", productDetailsSchema);
 
