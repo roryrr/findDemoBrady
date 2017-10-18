@@ -1,6 +1,6 @@
 angular.module('ebApp').component('ebUserPicker', {
   templateUrl: 'components/userPicker/userPicker.html',
-  controller: ['ebSearch', 'ebSearchService', 'ebState', 'ebDemoUser', 'ebUsers', function(ebSearch, ebSearchService, ebState, ebDemoUser, ebUsers) {
+  controller: ['ebSearch', 'ebSearchService', 'ebState', 'ebDemoUser', 'ebUsers', 'newDataService', function(ebSearch, ebSearchService, ebState, ebDemoUser, ebUsers, newDataService) {
     'use strict';
 
     var controller = this;
@@ -34,7 +34,7 @@ angular.module('ebApp').component('ebUserPicker', {
         return [];
       }
     };
-    
+
       controller.getProducts = function() {
         if (controller.selectedUser) {
           return controller.selectedUser.viewed;

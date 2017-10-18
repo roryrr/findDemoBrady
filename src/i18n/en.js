@@ -31,7 +31,7 @@ angular.module('ebApp').config(['$translateProvider', function($translateProvide
       AGE_GROUP: 'Age',
       REPORTINGCOLOUR: 'Colour',
       COLOR: 'Color',
-      COLOR_GROUP: 'Color-group'
+      COLOR_GROUP: 'Color Group'
     },
     SORT: {
       LABEL: 'Sort by',

@@ -1,22 +1,9 @@
 'use strict';
 angular.module('ebApp')
-.factory('ebUsers', ['$http', function($http) {
-  var viewedArray = [];
-  var purchasedArray = [];
-  setInterval(function(){
-    $http.get('http://localhost:8080/').then(function(response) {
-      viewedArray.length = 0;
-      purchasedArray.length = 0;
-      response.data.forEach(function(e){
-        if(e.identifier === "viewed"){
-          viewedArray.push(e);
-        }
-        else {
-          purchasedArray.push(e);
-        }
-      });
-    });
-  }, 1000);
+.service('ebUsers', ['$http', 'newDataService', 'newDataServiceForPurchased', function($http, newDataService, newDataServiceForPurchased) {
+  var viewedArray = newDataService.getData();
+  var purchasedArray = newDataServiceForPurchased.getData();
+
   return {
     u1: {
       id: 'u1',
@@ -71,14 +58,51 @@ angular.module('ebApp')
   };
 }])
 
+.service('newDataService',['$http', function($http){
+  var viewedArray = [];
+  return{
+    getData: function(){
+      $http.get('http://localhost:8080/').then(function(response) {
+        viewedArray.length = 0;
+        response.data.forEach(function(e){
+          if(e.identifier === "viewed"){
+            viewedArray.push(e);
+          }
+        });
+      });
+      return viewedArray;
+    }
+  }
+}])
+
+.service('newDataServiceForPurchased',['$http', function($http){
+  var purchasedArray = [];
+  return{
+    getData: function(){
+      $http.get('http://localhost:8080/').then(function(response) {
+        purchasedArray.length = 0;
+        response.data.forEach(function(e){
+          if(e.identifier === "purchased"){
+            purchasedArray.push(e);
+          }
+        });
+      });
+      return purchasedArray;
+    }
+  }
+}])
+
 // Controller
-.controller('dataSaveController', ['$scope', '$http', function ($scope, $http) {
+.controller('dataSaveController', ['$scope', '$http', 'newDataService', 'newDataServiceForPurchased', function ($scope, $http, newDataService, newDataServiceForPurchased) {
+  // var vArray = [];
+  // var pArray = [];
   $scope.viewArrayPushing = function(id){
     var data = {
       productId: id
     };
     $http.post("http://localhost:8080/viewed", data).success(function(data, status) {
       console.log('Data posted successfully');
+      newDataService.getData();
     })
     .error(function(data, status){
       console.log("you are caught");
@@ -91,6 +115,7 @@ angular.module('ebApp')
     };
     $http.post("http://localhost:8080/purchased", data).success(function(data, status) {
       console.log('Data posted successfullyy');
+      newDataServiceForPurchased.getData();
     })
     .error(function(data, status){
       console.log("you are caught");
@@ -102,6 +127,8 @@ angular.module('ebApp')
     };
     $http.post("http://localhost:8080/delete", data).success(function(data, status) {
       console.log('Data posted successfullyy delete');
+      newDataService.getData();
+      newDataServiceForPurchased.getData();
     })
     .error(function(data, status){
       console.log("you are caught");
