@@ -20,7 +20,7 @@ angular.module('ebApp').config(['$translateProvider', function($translateProvide
     FACET_CLEAR: 'Clear',
     FACET_TITLE: {
       RELEASEDATE: 'Release date',
-      BRAND: 'Brand',
+      BRAND: 'Designer',
       CATEGORYNAME: 'Category',
       PRODUCT_EFFECTIVEPRICE_CENTS: 'Price',
       PRODUCT_SALEPRICE_CENTS: 'Price',

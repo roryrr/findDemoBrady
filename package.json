@@ -24,14 +24,11 @@
     "jshint-stylish": "~2.2.1"
   },
   "dependencies": {
-    "array-unique": "^0.3.2",
     "cloudinary": "^1.9.0",
-    "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
     "express": "^4.16.1",
     "mongojs": "^2.4.1",
     "mongoose": "^4.12.1",
-    "mongoose-type-url": "^1.0.2",
-    "randomstring": "^1.1.5"
+    "mongoose-type-url": "^1.0.2"
   }
 }

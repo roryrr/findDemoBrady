@@ -25,7 +25,7 @@ angular.module('ebApp').provider('ebFeatures', ['ebBaseFeaturesProvider', functi
     },
     components: {
       facets: {
-        filter: ['brand', 'releaseDate', 'product_pricecents']
+        filter: ['color_group', 'releaseDate', 'product_pricecents', 'rating']
       },
       empathize: {
         enabled: true,
