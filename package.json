@@ -30,8 +30,5 @@
     "mongojs": "^2.4.1",
     "mongoose": "^4.12.1",
     "mongoose-type-url": "^1.0.2"
-  },
-  "scripts": {
- "start": "node app.js"
-}
+  }
 }
