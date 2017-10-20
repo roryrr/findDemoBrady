@@ -62,7 +62,7 @@ angular.module('ebApp')
   var viewedArray = [];
   return{
     getData: function(){
-      $http.get('http://localhost:8080/').then(function(response) {
+      $http.get('http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/').then(function(response) {
         viewedArray.length = 0;
         response.data.forEach(function(e){
           if(e.identifier === "viewed"){
@@ -79,7 +79,7 @@ angular.module('ebApp')
   var purchasedArray = [];
   return{
     getData: function(){
-      $http.get('http://localhost:8080/').then(function(response) {
+      $http.get('http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/').then(function(response) {
         purchasedArray.length = 0;
         response.data.forEach(function(e){
           if(e.identifier === "purchased"){
@@ -100,7 +100,7 @@ angular.module('ebApp')
     var data = {
       productId: id
     };
-    $http.post("http://localhost:8080/viewed", data).success(function(data, status) {
+    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/viewed", data).success(function(data, status) {
       console.log('Data posted successfully');
       newDataService.getData();
     })
@@ -113,7 +113,7 @@ angular.module('ebApp')
     var data = {
       productId: id
     };
-    $http.post("http://localhost:8080/purchased", data).success(function(data, status) {
+    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/purchased", data).success(function(data, status) {
       console.log('Data posted successfullyy');
       newDataServiceForPurchased.getData();
     })
@@ -125,7 +125,7 @@ angular.module('ebApp')
     var data = {
       productId: "id"
     };
-    $http.post("http://localhost:8080/delete", data).success(function(data, status) {
+    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/delete", data).success(function(data, status) {
       console.log('Data posted successfullyy delete');
       newDataService.getData();
       newDataServiceForPurchased.getData();

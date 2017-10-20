@@ -32,7 +32,7 @@ var productDetailsSchema = new mongoose.Schema({
   categories: [String],
   identifier: String
 });
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todoAppTest', {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://ec2-52-90-50-25.compute-1.amazonaws.com/todoAppTest', {useMongoClient: true});
 
 var productDetailsCollection = mongoose.model("productDetailsCollection", productDetailsSchema);
 
