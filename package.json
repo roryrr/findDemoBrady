@@ -33,6 +33,6 @@
   },
   "scripts": {
  "start": "node app.js",
- "postinstall": "bower install && grunt --force"
+ "postinstall": "bower install && grunt --force &"
 }
 }
