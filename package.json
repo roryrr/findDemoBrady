@@ -32,7 +32,6 @@
     "mongoose-type-url": "^1.0.2"
   },
   "scripts": {
- "start": "node app.js",
- "postinstall": "bower install && grunt package"
+ "start": "node app.js"
 }
 }
