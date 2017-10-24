@@ -1,18 +1,10 @@
 'use strict';
-const express = require('express');
-const bodyParser = require('body-parser');
-const request = require('request');
-let app = express();
-var router = express.Router();
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-  extended: true
-}));
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+var express = require('express');
+var bodyParser = require('body-parser');
+// var session = require('express-session');
+var request = require('request');
+var app = express();
+// var MongoStore = require('connect-mongo')(session);
 require('mongoose-type-url');
 require('dotenv').config();
 var cloudinary = require('cloudinary');
@@ -23,16 +15,35 @@ cloudinary.config({
 });
 // Load mongoose package
 var mongoose = require('mongoose');
+
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+// app.use(session({
+//     secret: 'foo',
+//     saveUninitialized: true,
+//     resave: true,
+//     store: new MongoStore({ mongooseConnection: mongoose.connection })
+// }));
+
 // Connect to MongoDB and create/use database called todoAppTest
 // var Todo = require('./Todo.js');
-
+var barneysUser;
 var productDetailsSchema = new mongoose.Schema({
+  userId: String,
   id: String,
   image: mongoose.SchemaTypes.Url,
   categories: [String],
   identifier: String
 });
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://ec2-52-90-50-25.compute-1.amazonaws.com/todoAppTest', {useMongoClient: true});
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/todoAppTest', {useMongoClient: true});
 
 var productDetailsCollection = mongoose.model("productDetailsCollection", productDetailsSchema);
 
@@ -46,7 +57,21 @@ app.get('/', function(req, res) {
     }
   });
 });
+app.post('/login', function(req, res){
+  barneysUser = req.body.key1;
+  console.log(barneysUser);
+  console.log('done abba');
+  // req.session.user = barneysUser;
+  // req.session.save();
+  // res.redirect("/overlay.html");
+});
+// app.get('/cookie', function(req, res) {
+//   res.cookie('username', barneysUser);
+//   console.log("sett");
+// });
 app.post('/viewed', function(req, res){
+  // console.log(req.session.user);
+    var uid = req.body.name;
     var req_url = process.env.GET_PRODUCTS_URL;
     var queryParameters = { apiKey: process.env.API_KEY,
           apiClientKey: process.env.API_CLIENT_KEY,
@@ -68,6 +93,7 @@ app.post('/viewed', function(req, res){
                 else {
                   var rr_data;
                   rr_data = {
+                    "userId": uid,
                     "id": body.products[0].id,
                     "image": cloudinary.url(body.products[0].imageURL,{ type: 'fetch', height: 50, width: 50, background: "white", crop: "pad", quality: 100, fetch_format: 'jpg'}),
                     "categories": body.products[0].categoryIds,
@@ -90,6 +116,7 @@ app.post('/viewed', function(req, res){
 });
 
 app.post('/purchased', function(req, res){
+    var uid = req.body.name;
     var req_url = process.env.GET_PRODUCTS_URL;
     var queryParameters = { apiKey: process.env.API_KEY,
           apiClientKey: process.env.API_CLIENT_KEY,
@@ -111,6 +138,7 @@ app.post('/purchased', function(req, res){
                 else {
                   var rr_data;
                   rr_data = {
+                    "userId": uid,
                     "id": body.products[0].id,
                     "image": cloudinary.url(body.products[0].imageURL,{ type: 'fetch', height: 50, width: 50, background: "white", crop: "pad", quality: 100, fetch_format: 'jpg'}),
                     "categories": body.products[0].categoryIds,
@@ -134,7 +162,8 @@ app.post('/purchased', function(req, res){
 
 
 app.post('/delete', function(req, res){
-  productDetailsCollection.remove({}, function (err, removed) {
+  var uid = req.body.name;
+  productDetailsCollection.remove({userId: uid}, function (err, removed) {
     console.log("deleting from here");
     res.send("item deleted to database");
   });

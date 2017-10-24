@@ -61,11 +61,11 @@ angular.module('ebApp')
 .service('newDataService',['$http', function($http){
   var viewedArray = [];
   return{
-    getData: function(){
-      $http.get('http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/').then(function(response) {
+    getData: function(un){
+      $http.get('http://localhost:8080/').then(function(response) {
         viewedArray.length = 0;
         response.data.forEach(function(e){
-          if(e.identifier === "viewed"){
+          if(e.identifier === "viewed" && e.userId == un){
             viewedArray.push(e);
           }
         });
@@ -78,11 +78,11 @@ angular.module('ebApp')
 .service('newDataServiceForPurchased',['$http', function($http){
   var purchasedArray = [];
   return{
-    getData: function(){
-      $http.get('http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/').then(function(response) {
+    getData: function(un){
+      $http.get('http://localhost:8080/').then(function(response) {
         purchasedArray.length = 0;
         response.data.forEach(function(e){
-          if(e.identifier === "purchased"){
+          if(e.identifier === "purchased" && e.userId == un){
             purchasedArray.push(e);
           }
         });
@@ -92,17 +92,30 @@ angular.module('ebApp')
   }
 }])
 
+// //Login controller
+// .controller('userLoginController', ['$scope', '$http', function($scope, $http){
+//   $scope.login = function(){
+//       console.log($scope.uname);
+//       $http.get('http://localhost:8080/');
+//   }
+//
+// }])
+
 // Controller
-.controller('dataSaveController', ['$scope', '$http', 'newDataService', 'newDataServiceForPurchased', function ($scope, $http, newDataService, newDataServiceForPurchased) {
+.controller('dataSaveController', ['$scope', '$http', 'newDataService', 'newDataServiceForPurchased', '$document', function ($scope, $http, newDataService, newDataServiceForPurchased, $document) {
   // var vArray = [];
   // var pArray = [];
+  var userName = $document.prop( "cookie" );
   $scope.viewArrayPushing = function(id){
     var data = {
-      productId: id
+      productId: id,
+      name: userName
     };
-    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/viewed", data).success(function(data, status) {
+    $http.post("http://localhost:8080/viewed", data).success(function(data, status) {
       console.log('Data posted successfully');
-      newDataService.getData();
+
+      // console.log($document.prop( "cookie" ));
+      newDataService.getData(userName);
     })
     .error(function(data, status){
       console.log("you are caught");
@@ -111,11 +124,12 @@ angular.module('ebApp')
 
   $scope.buyArrayPushing = function(id){
     var data = {
-      productId: id
+      productId: id,
+      name: userName
     };
-    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/purchased", data).success(function(data, status) {
+    $http.post("http://localhost:8080/purchased", data).success(function(data, status) {
       console.log('Data posted successfullyy');
-      newDataServiceForPurchased.getData();
+      newDataServiceForPurchased.getData(userName);
     })
     .error(function(data, status){
       console.log("you are caught");
@@ -123,12 +137,12 @@ angular.module('ebApp')
   };
   $scope.restart = function(){
     var data = {
-      productId: "id"
+      name: userName
     };
-    $http.post("http://ec2-52-90-50-25.compute-1.amazonaws.com:8080/delete", data).success(function(data, status) {
+    $http.post("http://localhost:8080/delete", data).success(function(data, status) {
       console.log('Data posted successfullyy delete');
-      newDataService.getData();
-      newDataServiceForPurchased.getData();
+      newDataService.getData(userName);
+      newDataServiceForPurchased.getData(userName);
     })
     .error(function(data, status){
       console.log("you are caught");
