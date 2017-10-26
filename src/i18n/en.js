@@ -48,7 +48,7 @@ angular.module('ebApp').config(['$translateProvider', function($translateProvide
     TRY_AGAIN: 'Please try again with a different search criteria',
     SHOW_MORE: '(Show more)',
     SHOW_ALL: 'Show all {{number}}',
-    TOP_CLICKED: 'The products most viewed today',
+    TOP_CLICKED: 'RECOMMENDED',
     IN: 'in',
     ADD_TO_CART: 'Add to cart'
   });

@@ -7,7 +7,7 @@ angular.module('ebApp').provider('ebConfig', ['ebBaseConfigProvider', function(e
   'use strict';
 
   var CUSTOM_CONFIG = {
-    apiClientKey: '322b405a78c0c494',
+    apiClientKey: '706e5f5b8e4605f6',
     loadingAnimation: 'images/loadingcss.html'
   };
 

@@ -1,3 +1,36 @@
+<!-- <data-ng-include data-ng-if="$ctrl.ebFeatures.icons.showNoResultsIcon" data-src="$ctrl.noResultsIconPath"></data-ng-include>
+
+<p class="eb-no-results-message" data-translate="RESULTS_NORESULTS" data-translate-value-query="{{$ctrl.showQuery()}}"></p>
+
+<div class="eb-no-results-try-again" data-translate="TRY_AGAIN"></div>
+
+<div class="eb-top-clicked"
+     data-ng-if="$ctrl.ebSearch.getTopClicked().length > 0">
+    <p class="eb-top-clicked-message"
+       data-translate="TOP_CLICKED"></p>
+    <div id="eb-top-clicked-articles" class="eb-top-clicked-list">
+        <data-slick data-infinite="true"
+                    data-slides-to-show="5"
+                    data-slides-to-scroll="5"
+                    data-speed="1000"
+                    data-easing="ease out"
+                    data-arrows="true"
+                    data-init-onload="true"
+                    data-data="$ctrl.ebSearch.getTopClicked()"
+                    data-responsive="$ctrl.breakpoints"
+                    data-autoplay="false">
+            <div ng-repeat="result in $ctrl.getTopClicked() track by result.id">
+                <data-eb-result
+                    class="eb-result {{ $ctrl.ebComponentRenderingHelper.ebResult.getClass() }}"
+                    data-ng-animate="'animate'"
+                    data-position="{{$index}}"
+                    data-eb-position="$index"
+                    data-eb-result="result">
+                </data-eb-result>
+            </div>
+        </data-slick>
+    </div>
+</div> -->
 <data-ng-include data-ng-if="$ctrl.ebFeatures.icons.showNoResultsIcon" data-src="$ctrl.noResultsIconPath"></data-ng-include>
 
 <p class="eb-no-results-message" data-translate="RESULTS_NORESULTS" data-translate-value-query="{{$ctrl.showQuery()}}"></p>

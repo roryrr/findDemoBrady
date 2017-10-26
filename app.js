@@ -178,4 +178,6 @@ module.exports = app;
     console.log("App now running on port", port);
   });
 
+//
+// if ( (username == "barneysu01" && password == "V&8sySC5") || (username == "barneysu02" && password == "7R$wVf4V") || (username == "barneysu03" && password == "Yf@dm2Lq") || (username == "barneysu04" && password == "HaK@YK9z") || (username == "barneysu05" && password == "JG&qj3JL") || (username == "barneysu06" && password == "M_rd3Vyd") || (username == "barneysu07" && password == "D?9Lp6rP") || (username == "barneysu08" && password == "aKE59s@G") || (username == "barneysu09" && password == "S_5TrMjh") || (username == "barneysu10" && password == "6b6@HZk7")){
 // CONTACTS API ROUTES BELOW
