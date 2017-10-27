@@ -8,7 +8,7 @@
       background: @main-color-light;
 
       li {
-        color: white;
+        color: #043f8d;
         background-color: transparent;
         position: relative;
 
@@ -24,7 +24,7 @@
             height: 15px;
 
             > g {
-              stroke: white;
+              stroke: @secondary-color;
               stroke-width: 5;
             }
           }
@@ -40,6 +40,7 @@
 
         &:hover {
           background-color: @secondary-color !important;
+          color: white;
         }
       }
     }
@@ -47,6 +48,9 @@
 
   li {
     border-top: solid 1px @secondary-color;
+    border-left: solid 1px @secondary-color;
+    border-right: solid 1px @secondary-color;
+    border-bottom: solid 1px @secondary-color;
     background-color: @main-color-light;
     color: @secondary-color;
     font-weight: 200;
@@ -59,8 +63,8 @@
 
   .eb-empathize-selected,
   li:hover {
-    background-color: white;
-    color: @secondary-color-light;
+    background-color: @secondary-color-light;
+    color: white;
     border: solid black 1px;
   }
 

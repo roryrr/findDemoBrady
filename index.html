@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <link rel="icon" type="img/ico" href="images/Mike.png">
+  <title>Brady ID Find Demo</title>
+  <!-- Include CSS File Here -->
+  <!-- Include JS File Here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+  // Below function Executes on click of login button.
+  function validate(){
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+    document.cookie = username;
+    var data = {
+      key1: username
+    };
+    console.log(username);
+    if ( (username == "Formget" || "barneyslog1") && password == "Formget"){
+      // alert ("Login successfully");
+      $.post("http://localhost:8080/login", data, function(data) {
+        alert("Response: " + data);
+      }
+    );
+    // $.get("http://localhost:8080/cookie", data, function(data) {
+    //     alert("Response: " + data);
+    //   }
+    // );
+    window.location = "overlay.html"; // Redirecting to other page.
+    return false;
+  }
+  else{
+    alert("Invalid credentials");
+    // Disabling fields after 3 attempts.
+  }
+}
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+/* Below line is used for online Google font */
+/*h2{
+  background-color: white;
+  padding: 30px 35px;
+  margin: -10px -50px;
+  text-align:center;
+  border-radius: 10px 10px 0 0;*/
+/*}*/
+/*hr{
+  margin: 100px -50px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin-bottom: 40px;
+}*/
+/*div.container{
+  width: 900px;
+  height: 500px;
+  margin:35px 50px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+div.main{
+  width: 300px;
+  padding: 10px 100px 25px;
+  border: 2px solid gray;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  float:left;
+  margin-top:50px;
+}
+input[type=text],input[type=password]{
+  width: 100%;
+  height: 20px;
+  padding: 5px;
+  margin-bottom: 25px;
+  margin-top: 5px;
+  border: 1px solid black;
+  color: #4f4f4f;
+  font-size: 16px;
+}
+label{
+  color: #464646;
+  text-shadow: 0 1px 0 #fff;
+  font-size: 14px;
+  font-weight: bold;
+}
+center{
+  font-size:32px;
+}
+input[type=button]{
+  font-size: 16px;
+  background: white;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  width: 80%;
+  padding: 10px 0;
+  outline:none;
+}
+input[type=button]:hover{
+  background: black;
+  color: white;
+}
+#imageLogo{
+  background-color: black;
+  height: 70px;
+  text-align: center;
+}
+.frame{
+  margin: auto;
+    width: 60%;
+    border: 3px solid black;
+    padding: 10px;%;
+}*/
+#imageLogo{
+  background-color: black;
+  height: 70px;
+  /*text-align: center;*/
+}
+.container{
+  background-color: white;
+  color: #043f8d;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.container .form-control{
+  background-color: white;
+  color: #043f8d;
+
+}
+
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container" style="border:1px solid #cecece; margin-top: 120px">
+  <br><br><br>
+  <form class="form-horizontal">
+
+<!-- Form Name -->
+<div class="text-center">
+<img src="/images/logo.png" id="imageLogo">
+</div>
+<br><br>
+
+<!-- Text input-->
+<p class="col-md-4 col-md-offset-4 text-center">MEET THE NEW SEARCH EXPERIENCE FOR <br> BRADY ID</p><br>
+<div class="form-group">
+  <label class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2" for="username">Username</label><br><br>
+  <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+  <input id="username" name="username" type="text" placeholder="Enter your username" class="form-control input-md" required="">
+
+  </div>
+</div>
+
+<!-- Password input-->
+<div class="form-group">
+  <label class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2" for="password">Password</label><br>
+  <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+    <input id="password" name="password" type="password" placeholder="Enter your password" class="form-control input-md" required="">
+
+  </div>
+</div>
+</form>
+<!-- Button -->
+<br>
+  <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
+    <button id="submit" name="submit" class="btn btn-default form-control" onclick="validate()">Enter</button>
+  </div>
+<br><br><br>
+<br><br><br>
+
+
+  <!-- <div class="frame">
+  <div id="imageLogo">
+    <img src="/images/logo.png" id="imageLogo">
+  </div>
+  <div class="container">
+    <div class="main">
+      <h2>LOG IN TO YOUR ACCOUNT</h2>
+      <form id="form_id" method="post" name="myform">
+        <label>Login</label>
+        <input type="text" name="username" id="username"/>
+        <label>Password</label>
+        <input type="password" name="password" id="password"/>
+        <input type="button" value="Login" id="submit" onclick="validate()"/>
+      </form>
+
+    </div>
+  </div>
+</div> -->
+</body>
+</html>

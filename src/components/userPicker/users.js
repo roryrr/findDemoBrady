@@ -111,6 +111,7 @@ angular.module('ebApp')
       productId: id,
       name: userName
     };
+    console.log(id);
     $http.post("http://localhost:8080/viewed", data).success(function(data, status) {
       console.log('Data posted successfully');
 

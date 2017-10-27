@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="157px" height="157px" viewBox="0 0 157 157" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44 (41411) - http://www.bohemiancoding.com/sketch -->
+    <title>Rotate-mins</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rotate-mins" fill-rule="nonzero" fill="#FFFFFF">
+            <path d="M78,156 C35.4740743,156 1,121.525926 1,79 C1,36.4740743 35.4740743,2 78,2 C120.525926,2 155,36.4740743 155,79 C155,121.525926 120.525926,156 78,156 Z M78,150 C117.212217,150 149,118.212217 149,79 C149,39.7877828 117.212217,8 78,8 C38.7877828,8 7,39.7877828 7,79 C7,118.212217 38.7877828,150 78,150 Z" id="Oval-4"></path>
+            <polygon id="hour-copy" points="75 82 146 82 146 76 75 76"></polygon>
+        </g>
+    </g>
+</svg>

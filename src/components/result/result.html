@@ -1,7 +1,7 @@
 <div ng-app='ebApp'>
 <a data-ng-click="$ctrl.resultClicked()" data-ng-href="{{$ctrl.result.finalUrl}}">
-    <img data-ng-show="$ctrl.src || $ctrl.ebConfig.defaultImage"
-         data-ng-src="{{$ctrl.src || $ctrl.ebConfig.defaultImage}}"
+    <img data-ng-show="$ctrl.src"
+         data-ng-src="{{$ctrl.src}}"
          data-ng-mouseover="$ctrl.onImageMouseOver()"
          data-ng-mouseout="$ctrl.onImageMouseOut()"
          class="eb-result-image"
