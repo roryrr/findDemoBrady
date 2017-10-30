@@ -4,6 +4,7 @@
   margin-bottom: 30px;
   text-align: left;
   box-sizing: border-box;
+  padding-bottom: 10px;
 
   @media (min-width: @four-column-breakpoint) {
     width: calc(~'100% / 6');
@@ -39,10 +40,6 @@
     font-weight: bold;
     color: #000;
     width: 105%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 200px;
 
     .mobile({ font-size: 16px; width: 100%; max-height: 38px; overflow: hidden; opacity: .92; });
   }
@@ -59,19 +56,19 @@
       .mobile({ text-align: right });
 
       .eb-result-category {
-        color: @secondary-color;
+        color: black;
         font-weight: 200;
         font-size: 13px;
         line-height: 100%;
         vertical-align: bottom;
-        padding: 3px 5px 3px 5px;
+
 
         .mobile({ font-size: 10px; });
       }
     }
 
     .eb-result-price {
-      color: @secondary-color;
+      color: black;
       font-weight: 200;
       font-size: 13px;
       line-height: 100%;
@@ -81,6 +78,10 @@
       .mobile({ font-size: 10px; });
     }
   }
+}
+.eb-result-custom{
+  margin-top: 10px;
+  font-size: 12px;
 }
 .buttonstyle {
   -webkit-border-radius: 0;

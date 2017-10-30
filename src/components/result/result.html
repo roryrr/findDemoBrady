@@ -10,16 +10,15 @@
                      data-src="$ctrl.defaultImagePath"></data-ng-include>
   </a>
     <div class="eb-result-details">
-      <p class="eb-result-name">{{$ctrl.result.brand | uppercase}}</p>
+      <p class="eb-result-name">${{$ctrl.result.price}}</p>
       <!-- <div ng-controller="dataSaveController as dsCtrl"> -->
           <button class="buttonstyle" ng-controller="dataSaveController as dsCtrl" ng-click="buyArrayPushing($ctrl.result.id)">Buy</button>
           <button class="buttonstyle" ng-controller="dataSaveController as dsCtrl" ng-click="viewArrayPushing($ctrl.result.id)">View</button>
       <!-- </div> -->
   </div>
-<div class="eb-result-details">
-    <p class="eb-result-categories"><span class="eb-result-category">{{$ctrl.result.name}}</span>
+<div class="eb-result-custom">
+    <p><span>{{$ctrl.result.name}}</span>
     </p>
-    <p class="eb-result-price">${{$ctrl.result.price}}</p>
     <!-- ebCurrency:$ctrl.result.currency -->
 </div>
 </div>

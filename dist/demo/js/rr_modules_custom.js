@@ -3965,7 +3965,7 @@ angular.module('ebApp').provider('ebConfig', ['ebBaseConfigProvider', function(e
   'use strict';
 
   var CUSTOM_CONFIG = {
-    apiClientKey: '706e5f5b8e4605f6',
+    apiClientKey: '56ef628354f96c10',
     loadingAnimation: 'images/loadingcss.html'
   };
 
@@ -4456,7 +4456,7 @@ angular.module("components/no-results/no-results.html", []).run(["$templateCache
 
 angular.module("components/result/result.html", []).run(["$templateCache", function ($templateCache) {
   $templateCache.put("components/result/result.html",
-    "<div ng-app=ebApp><a data-ng-click=$ctrl.resultClicked() data-ng-href={{$ctrl.result.finalUrl}}><img data-ng-show=$ctrl.src data-ng-src={{$ctrl.src}} data-ng-mouseover=$ctrl.onImageMouseOver() data-ng-mouseout=$ctrl.onImageMouseOut() class=eb-result-image alt={{$ctrl.result.name}}><data-ng-include data-ng-if=\"!$ctrl.src && !ebConfig.defaultImage\" data-src=$ctrl.defaultImagePath></data-ng-include></a><div class=eb-result-details><p class=eb-result-name>{{$ctrl.result.brand | uppercase}}</p><button class=buttonstyle ng-controller=\"dataSaveController as dsCtrl\" ng-click=buyArrayPushing($ctrl.result.id)>Buy</button> <button class=buttonstyle ng-controller=\"dataSaveController as dsCtrl\" ng-click=viewArrayPushing($ctrl.result.id)>View</button></div><div class=eb-result-details><p class=eb-result-categories><span class=eb-result-category>{{$ctrl.result.name}}</span></p><p class=eb-result-price>${{$ctrl.result.price}}</p></div></div>");
+    "<div ng-app=ebApp><a data-ng-click=$ctrl.resultClicked() data-ng-href={{$ctrl.result.finalUrl}}><img data-ng-show=$ctrl.src data-ng-src={{$ctrl.src}} data-ng-mouseover=$ctrl.onImageMouseOver() data-ng-mouseout=$ctrl.onImageMouseOut() class=eb-result-image alt={{$ctrl.result.name}}><data-ng-include data-ng-if=\"!$ctrl.src && !ebConfig.defaultImage\" data-src=$ctrl.defaultImagePath></data-ng-include></a><div class=eb-result-details><p class=eb-result-name>${{$ctrl.result.price}}</p><button class=buttonstyle ng-controller=\"dataSaveController as dsCtrl\" ng-click=buyArrayPushing($ctrl.result.id)>Buy</button> <button class=buttonstyle ng-controller=\"dataSaveController as dsCtrl\" ng-click=viewArrayPushing($ctrl.result.id)>View</button></div><div class=eb-result-custom><p><span>{{$ctrl.result.name}}</span></p></div></div>");
 }]);
 
 angular.module("components/scroll-to-top/scroll-to-top.html", []).run(["$templateCache", function ($templateCache) {
