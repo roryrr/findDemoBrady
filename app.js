@@ -60,7 +60,7 @@ app.get('/', function(req, res) {
 app.post('/login', function(req, res){
   barneysUser = req.body.key1;
   console.log(barneysUser);
-  console.log('done abba');
+
   // req.session.user = barneysUser;
   // req.session.save();
   // res.redirect("/overlay.html");
@@ -88,7 +88,7 @@ app.post('/viewed', function(req, res){
                 //parsing the json response from RR cloud
                 body = JSON.parse(body);
                 if(body.status == "error"){
-                  console.log("nenu cheppala");
+
                 }
                 else {
                   var rr_data;
@@ -133,7 +133,7 @@ app.post('/purchased', function(req, res){
                 //parsing the json response from RR cloud
                 body = JSON.parse(body);
                 if(body.status == "error"){
-                  console.log("nenu cheppala");
+
                 }
                 else {
                   var rr_data;
